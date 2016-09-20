@@ -25,10 +25,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+function anyBodyParser(req, res, next) {
+    var data = '';
+    req.setEncoding('utf8');
+    req.on('data', function(chunk) {
+        data += chunk;
+    });
+    req.on('end', function() {
+        req.rawBody = data;
+        next();
+    });
+}
+
+app.use(anyBodyParser);
+
 app.post('/CognitoTab/v1/Shipments/', function(req, res) {
   //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
   console.log('Receiving xml content');
-    console.dir(req.rawBody);
+  console.log(req.rawBody.toString());
     res.contentType('application/xml');
     res.send(req.body, 200);
 });
