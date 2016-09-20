@@ -28,8 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/CognitoTab/v1/Shipments/', function(req, res) {
   //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
   console.log('Receiving xml content');
-  console.log(req.body);
-  res.send('POST request to the homepage');
+    console.dir(req.rawBody);
+    res.contentType('application/xml');
+    res.send(req.body, 200);
 });
 
 app.all('/secret', function (req, res, next) {
