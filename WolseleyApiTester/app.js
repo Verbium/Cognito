@@ -39,7 +39,7 @@ function anyBodyParser(req, res, next) {
 
 app.use(anyBodyParser);
 
-app.post('/CognitoTab/v1/Shipments/', function(req, res) {
+app.post('/wuk/cs/CognitoTab/v1/Shipments/', function(req, res) {
   //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
   console.log('Receiving xml content');
   console.log(req.rawBody.toString());
