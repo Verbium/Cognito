@@ -45,7 +45,7 @@ app.param('shipmentId', function(req, res, next, shipmentId) {
     next();
 });*/
 
-app.post('wuk/cs/CognitoTab/v1/Shipments/:shipmentId/state', function(req, res) {
+app.post('wuk/cs/CognitoTab/v1/Shipments/', function(req, res) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     console.log('Receiving xml content');
     console.log(req.rawBody.toString());
