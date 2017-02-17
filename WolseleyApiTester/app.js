@@ -39,13 +39,13 @@ function anyBodyParser(req, res, next) {
 
 app.use(anyBodyParser);
 
-/*// parameter middleware that will run before the next routes
+// parameter middleware that will run before the next routes
 app.param('shipmentId', function(req, res, next, shipmentId) {
     req.shipmentId = shipmentId;
     next();
-});*/
+});
 
-app.post('wuk/cs/CognitoTab/v1/Shipments/', function(req, res) {
+app.post('/wuk/cs/CognitoTab/v1/Shipments/:shipmentId/state', function(req, res) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     console.log('Receiving xml content');
     console.log(req.rawBody.toString());
