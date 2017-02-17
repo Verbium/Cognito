@@ -3,7 +3,14 @@
  */
 var app = express();
 /* GET home page. */
-app.post('/wuk/cs/CognitoTab/v1/Shipments/', function(req, res) {
+
+// parameter middleware that will run before the next routes
+app.param('shipmentId', function(req, res, next, shipmentId) {
+    req.shipmentId = shipmentId;
+    next();
+});
+
+app.post('wuk/cs/CognitoTab/v1/Shipments/:shipmentId/state', function(req, res) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     res.send('POST request to the homepage');
 });
