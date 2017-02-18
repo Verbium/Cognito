@@ -6,6 +6,7 @@ router.get('/wuk/cs/CognitoTab/v1/Shipments', function(req, res, next) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     var xml = router.get('InvItem');
     res.set('Content-Type', 'application/xml');
+    console.log('xml is set to: '+xml);
     if (xml) {
         res.send(xml);
     } else {
