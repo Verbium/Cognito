@@ -48,7 +48,15 @@ app.param('shipmentId', function(req, res, next, shipmentId) {
 app.post('/wuk/cs/CognitoTab/v1/Shipments/:shipmentId/state', function(req, res) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     console.log('Receiving xml content');
+    app.set('InvItemState',req.rawBody);
+    res.contentType('application/xml');
+    res.send(req.body, 200);
+});
+
+app.post('/updateItem', function(req, res) {
+    console.log('Receiving xml content');
     console.log(req.rawBody.toString());
+    app.set('InvItemState',req.rawBody);
     res.contentType('application/xml');
     res.send(req.body, 200);
 });
