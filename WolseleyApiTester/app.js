@@ -56,7 +56,7 @@ app.post('/wuk/cs/CognitoTab/v1/Shipments/:shipmentId/state', function(req, res)
 app.post('/updateItem', function(req, res) {
     console.log('Receiving xml content');
     console.log(req.rawBody.toString());
-    app.set('InvItemState',req.rawBody);
+    app.set('InvItem',req.rawBody);
     res.contentType('application/xml');
     res.send(req.body, 200);
 });
