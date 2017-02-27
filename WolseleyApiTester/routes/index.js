@@ -6,6 +6,7 @@ router.get('/wuk/cs/CognitoTab/v1/Shipments', function(req, res, next) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     var xml = req.app.get('InvItem');
     var status = req.app.get('HTTPStatus');
+    console.log('Get call being made, status code: '+status);
     switch (status){
         case 200:
             res.set('Content-Type', 'application/xml');
