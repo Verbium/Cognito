@@ -63,7 +63,6 @@ app.post('/updateItem', function(req, res) {
 
 app.post('/setHTTPStatus/:status', function(req, res) {
     console.log('Setting status code to: '+req.params.status);
-    console.log(req.rawBody.toString());
     app.set('HTTPStatus',req.params.status);
     res.contentType('text/html');
     res.send('Status code changed to: '+req.params.status, 200);
