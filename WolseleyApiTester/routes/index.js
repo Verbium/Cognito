@@ -7,7 +7,7 @@ router.get('/wuk/cs/CognitoTab/v1/Shipments', function(req, res, next) {
     var xml = req.app.get('InvItem');
     var status = req.app.get('HTTPStatus');
     console.log('Get call being made, status code: '+status);
-    console.log('req header: '+req.header);
+    console.log('req header: '+JSON.stringify(req.headers));
     switch (status){
         case '404':
             res.status(404).send('Not found');
