@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/wuk/cs/CognitoTab/v1/Shipments', function(req, res, next) {
+router.get('/wuk/cs/CognitoTab/v1/Shipments/:deviceId/:rel', function(req, res, next) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     var xml = req.app.get('InvItem');
     var status = req.app.get('HTTPStatus');
