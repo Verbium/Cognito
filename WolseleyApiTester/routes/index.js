@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/wuk/cs/CognitoTab/v1/Shipments/:deviceId/:rel', function(req, res, next) {
+router.get('/wuk/cs/CognitoTab/v1/Shipments', function(req, res, next) {
     //CognitoTab/v1/Shipments?deviceID={deviceid}&rel=oldest_unactioned
     var xml = req.app.get('InvItem');
     var status = req.app.get('HTTPStatus');
@@ -16,8 +16,8 @@ router.get('/wuk/cs/CognitoTab/v1/Shipments/:deviceId/:rel', function(req, res, 
             res.status(407).send('Proxy Authentication Required');
             break;
         default:
-            console.log('param : '+JSON.stringify(req.params));
-            if (req.params.deviceId && req.params.rel) {
+            console.log('req.query : '+JSON.stringify(req.query));
+            if (req.query.deviceId && req.query.rel) {
                 res.set('Content-Type', 'application/xml');
                 console.log('xml is set to: ' + xml);
                 if (xml) {
